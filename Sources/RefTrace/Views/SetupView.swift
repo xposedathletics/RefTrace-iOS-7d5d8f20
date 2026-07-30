@@ -24,10 +24,10 @@ struct SetupView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
 
-                Picker("Role", selection: $gameState.userRole) {
-                    Text("Head Referee").tag("head")
-                    Text("Crew").tag("crew")
-                    Text("Observer").tag("observer")
+                Picker("Role", selection: $gameState.position) {
+                    Text("Head Referee").tag("Head Referee")
+                    Text("Crew").tag("Crew")
+                    Text("Observer").tag("Observer")
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)

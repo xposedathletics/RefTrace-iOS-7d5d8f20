@@ -46,13 +46,31 @@ struct PenaltyView: View {
                 .cornerRadius(10)
             }
 
+            #if os(iOS)
             TextField("Player Number", text: $playerNumber)
                 .keyboardType(.numberPad)
                 .textFieldStyle(.roundedBorder)
+            #else
+            TextField("Player Number", text: $playerNumber)
+                .textFieldStyle(.roundedBorder)
+            #endif
 
             Button("Log Penalty") {
-                let p = Penalty(type: selectedType, team: selectedTeam, playerNumber: playerNumber, period: gameState.period)
-                gameState.penalties.append(p)
+                let isHomeTeam = selectedTeam == gameState.homeTeam
+                let flag = FlagEvent(
+                    code: selectedType,
+                    label: selectedType,
+                    side: "",
+                    team: isHomeTeam ? "home" : "away",
+                    teamName: selectedTeam,
+                    mascot: isHomeTeam ? gameState.homeMascot : gameState.awayMascot,
+                    playerNum: playerNumber,
+                    periodLabel: gameState.periodLabel,
+                    clock: String(gameState.clock),
+                    wall: DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium),
+                    ts: Date()
+                )
+                gameState.flags.append(flag)
                 playerNumber = ""
                 showConfirmation = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

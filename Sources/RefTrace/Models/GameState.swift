@@ -21,7 +21,7 @@ let PENALTIES: [PenaltyDef] = [
 
 // ── Score Event ───────────────────────────────────────────────
 struct ScoreEvent: Identifiable, Codable {
-    var id = UUID()      // ← var fixes the Codable warning
+    var id = UUID()
     let side: String
     let type: String
     let pts: Int
@@ -33,7 +33,7 @@ struct ScoreEvent: Identifiable, Codable {
 
 // ── Flag Event ────────────────────────────────────────────────
 struct FlagEvent: Identifiable, Codable {
-    var id = UUID()      // ← var fixes the Codable warning
+    var id = UUID()
     let code: String
     let label: String
     let side: String
@@ -49,7 +49,7 @@ struct FlagEvent: Identifiable, Codable {
 
 // ── Game Period ───────────────────────────────────────────────
 struct GamePeriod: Identifiable, Codable {
-    var id = UUID()      // ← var fixes the Codable warning
+    var id = UUID()
     let label: String
     let maxSecs: Int
     var scores: [ScoreEvent] = []
@@ -57,7 +57,7 @@ struct GamePeriod: Identifiable, Codable {
 
 // ── Crew Message ──────────────────────────────────────────────
 struct CrewMessage: Identifiable, Codable {
-    var id = UUID()      // ← var fixes the Codable warning
+    var id = UUID()
     let sender: String
     let senderName: String
     let senderRole: String
@@ -99,27 +99,45 @@ class GameState: ObservableObject {
 
     @Published var crewMessages: [CrewMessage] = []
 
-    var isHeadRef: Bool    { position == "Head Referee" }
+    var isHeadRef: Bool     { position == "Head Referee" }
     var periodLabel: String { periods.indices.contains(periodIdx) ? periods[periodIdx].label : "Q1" }
-    var home: String       { homeTeam.isEmpty ? "Home" : homeTeam }
-    var away: String       { awayTeam.isEmpty ? "Away" : awayTeam }
+    var home: String        { homeTeam.isEmpty ? "Home" : homeTeam }
+    var away: String        { awayTeam.isEmpty ? "Away" : awayTeam }
 
+    func incrementHome() {
+        homeScore += 1
+    }
+
+    func decrementHome() {
+        homeScore = max(0, homeScore - 1)
+    }
+
+    func incrementAway() {
+        awayScore += 1
+    }
+
+    func decrementAway() {
+        awayScore = max(0, awayScore - 1)
+    }
+
+    // MARK: - Reset periods for selected sport
     func resetForSport() {
-    let count  = sport == "Football" ? 4 : 2
-    let prefix = sport == "Football" ? "Q" : "H"
-    let secs   = sport == "Football" ? 48 * 60 : 20 * 60
-    periods   = (1...count).map { GamePeriod(label: "\(prefix)\($0)", maxSecs: secs) }
-    periodIdx = 0
-    clock     = secs
-    otCount   = 0
-}   
-    func addOT() {
-    otCount += 1
-    let newPeriod = GamePeriod(label: "OT\(otCount)", maxSecs: 10 * 60)
-    [periods.app](https://periods.app)end(newPeriod)
-    periodIdx = periods.count - 1
-    clock = 10 * 60
-    running = false
-}
+        let count  = sport == "Football" ? 4 : 2
+        let prefix = sport == "Football" ? "Q" : "H"
+        let secs   = sport == "Football" ? 48 * 60 : 20 * 60
+        periods   = (1...count).map { GamePeriod(label: "\(prefix)\($0)", maxSecs: secs) }
+        periodIdx = 0
+        clock     = secs
+        otCount   = 0
+    }
 
-    
+    // MARK: - Add overtime period
+    func addOT() {
+        otCount += 1
+        let newPeriod = GamePeriod(label: "OT\(otCount)", maxSecs: 10 * 60)
+        periods.append(newPeriod)
+        periodIdx = periods.count - 1
+        clock     = 10 * 60
+        running   = false
+    }
+}      

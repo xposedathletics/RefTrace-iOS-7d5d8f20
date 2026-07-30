@@ -8,7 +8,7 @@ struct ContentRootView: View {
         if isSetup {
             SetupView(gameState: gameState, isSetup: $isSetup)
         } else {
-            if gameState.userRole == "observer" {
+            if gameState.position == "Observer" {
                 ObserverView(gameState: gameState)
             } else {
                 GameDashboardScrollView(gameState: gameState)

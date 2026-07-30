@@ -10,7 +10,7 @@ struct ObserverView: View {
                 Text("Observer View")
                     .font(.title.bold())
                     .foregroundColor(Color(hex: "C9A84C"))
-                Text("Period \(gameState.period)")
+                Text("Period \(gameState.periodLabel)")
                     .foregroundColor(.white)
                 HStack(spacing: 40) {
                     VStack {

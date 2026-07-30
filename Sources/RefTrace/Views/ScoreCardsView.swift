@@ -10,14 +10,14 @@ struct ScoreCardsView: View {
                 score: gameState.homeScore,
                 onIncrement: { gameState.incrementHome() },
                 onDecrement: { gameState.decrementHome() },
-                isHead: gameState.userRole == "head"
+                isHead: gameState.isHeadRef
             )
             TeamScoreCard(
                 teamName: gameState.awayTeam,
                 score: gameState.awayScore,
                 onIncrement: { gameState.incrementAway() },
                 onDecrement: { gameState.decrementAway() },
-                isHead: gameState.userRole == "head"
+                isHead: gameState.isHeadRef
             )
         }
     }

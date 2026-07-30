@@ -10,7 +10,7 @@ struct GameDashboardScrollView: View {
                 VStack(spacing: 20) {
                     ScoreCardsView(gameState: gameState)
                     PeriodScrollStrip(gameState: gameState)
-                    if gameState.userRole == "head" {
+                    if gameState.isHeadRef {
                         PenaltyView(gameState: gameState)
                     }
                 }
