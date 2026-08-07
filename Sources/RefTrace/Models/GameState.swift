@@ -120,6 +120,7 @@ class GameState: ObservableObject {
         awayScore = max(0, awayScore - 1)
     }
 
+
     // MARK: - Reset periods for selected sport
     func resetForSport() {
         let count  = sport == "Football" ? 4 : 2
@@ -140,4 +141,4 @@ class GameState: ObservableObject {
         clock     = 10 * 60
         running   = false
     }
-}      
+}
