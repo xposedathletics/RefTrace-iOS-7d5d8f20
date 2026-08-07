@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D393FA9930260D460050409C /* FootballInGameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393FA9830260D460050409C /* FootballInGameModels.swift */; };
+		D393FA9B30260D710050409C /* FootballInGameServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393FA9A30260D710050409C /* FootballInGameServices.swift */; };
+		D393FA9D302610D80050409C /* FootballGameClockLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393FA9C302610D80050409C /* FootballGameClockLogView.swift */; };
+		D393FA9F302610E40050409C /* FootballWhistleFieldTestPlan.md in Resources */ = {isa = PBXBuildFile; fileRef = D393FA9E302610E40050409C /* FootballWhistleFieldTestPlan.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D3AB33C830114F9D00A89F6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D393FA9830260D460050409C /* FootballInGameModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballInGameModels.swift; sourceTree = "<group>"; };
+		D393FA9A30260D710050409C /* FootballInGameServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballInGameServices.swift; sourceTree = "<group>"; };
+		D393FA9C302610D80050409C /* FootballGameClockLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGameClockLogView.swift; sourceTree = "<group>"; };
+		D393FA9E302610E40050409C /* FootballWhistleFieldTestPlan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FootballWhistleFieldTestPlan.md; sourceTree = "<group>"; };
 		D3AB33B530114F9C00A89F6D /* RefTraceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefTraceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB33C730114F9D00A89F6D /* RefTraceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefTraceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB33D130114F9D00A89F6D /* RefTraceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefTraceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +90,10 @@
 				D3AB33CA30114F9D00A89F6D /* RefTraceAppTests */,
 				D3AB33D430114F9D00A89F6D /* RefTraceAppUITests */,
 				D3AB33B630114F9C00A89F6D /* Products */,
+				D393FA9830260D460050409C /* FootballInGameModels.swift */,
+				D393FA9A30260D710050409C /* FootballInGameServices.swift */,
+				D393FA9C302610D80050409C /* FootballGameClockLogView.swift */,
+				D393FA9E302610E40050409C /* FootballWhistleFieldTestPlan.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D393FA9F302610E40050409C /* FootballWhistleFieldTestPlan.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D393FA9D302610D80050409C /* FootballGameClockLogView.swift in Sources */,
+				D393FA9B30260D710050409C /* FootballInGameServices.swift in Sources */,
+				D393FA9930260D460050409C /* FootballInGameModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

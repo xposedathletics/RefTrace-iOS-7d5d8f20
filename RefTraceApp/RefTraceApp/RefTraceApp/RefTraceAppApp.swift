@@ -1,10 +1,3 @@
-//
-//  RefTraceAppApp.swift
-//  RefTraceApp
-//
-//  Created by Harvey Watson on 7/22/26.
-//
-
 import SwiftUI
 import CoreData
 
@@ -14,7 +7,7 @@ struct RefTraceAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RefTraceRootView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
